@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { PageHOC } from "../Components/Index"
+
 const Home = () => {
   return (
     <div>
@@ -10,4 +12,6 @@ const Home = () => {
   )
 };
 
-export default Home;
+export default PageHOC(
+  Home,
+);

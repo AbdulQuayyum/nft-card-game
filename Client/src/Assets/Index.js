@@ -95,7 +95,6 @@ export {
   eoaalien,
   panight,
   heroImg,
-
   ace,
   bakezori,
   blackSolus,
@@ -126,17 +125,14 @@ export {
   whiplash,
   widowmaker,
   xho,
-
   logo,
-
+  Logo2,
   attack,
   defense,
   alertIcon,
   AlertIcon,
-
   player01,
   player02,
-
   attackSound,
   defenseSound,
   explosion,
