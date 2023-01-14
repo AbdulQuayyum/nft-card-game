@@ -7,10 +7,10 @@ const MainRoutes = () => {
     return (
         <Routes>
             <Route path="/" element={<Home />} />
-        <Route path="/battleground" element={<Battleground />} />
-        <Route path="/battle/:battleName" element={<Battle />} />
-        <Route path="/create-battle" element={<CreateBattle />} />
-        <Route path="/join-battle" element={<JoinBattle />} />
+            <Route path="/Battleground" element={<Battleground />} />
+            <Route path="/Battle/:battleName" element={<Battle />} />
+            <Route path="/CreateBattle" element={<CreateBattle />} />
+            <Route path="/JoinBattle" element={<JoinBattle />} />
         </Routes>
     )
 }
