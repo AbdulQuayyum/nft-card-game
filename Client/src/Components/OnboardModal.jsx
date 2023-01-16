@@ -3,12 +3,12 @@ import Modal from 'react-modal';
 
 import styles from '../Styles/Index.js';
 import CustomButton from './CustomButton';
-// import { useGlobalContext } from '../context';
+import { useGlobalContext } from '../Context/Index';
 import { GetParams, SwitchNetwork } from '../Utilities/Onboard';
 
 const OnboardModal = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
-  // const { updateCurrentWalletAddress } = useGlobalContext();
+  const { updateCurrentWalletAddress } = useGlobalContext();
   const [step, setStep] = useState(-1);
 
   async function resetParams() {
@@ -52,8 +52,7 @@ const OnboardModal = () => {
             </p>
             <CustomButton
               title="Connect Account"
-              handleClick={"updateCurrentWalletAddress"}
-              // handleClick={updateCurrentWalletAddress}
+              handleClick={updateCurrentWalletAddress}
             />
           </>
         );
