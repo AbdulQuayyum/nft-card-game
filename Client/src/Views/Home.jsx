@@ -40,11 +40,11 @@ const Home = () => {
     if (contract) createPlayerToken();
   }, [contract]);
 
-  useEffect(() => {
-    if (gameData.activeBattle) {
-      navigate(`/Battle/${gameData.activeBattle.name}`);
-    }
-  }, [gameData]);
+  // useEffect(() => {
+  //   if (gameData.activeBattle) {
+  //     navigate(`/Battle/${gameData.activeBattle.name}`);
+  //   }
+  // }, [gameData]);
 
   return (
     walletAddress && (
