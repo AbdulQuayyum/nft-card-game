@@ -26,6 +26,31 @@ export const GlobalContextProvider = ({ children }) => {
 
     const navigate = useNavigate()
 
+    //* Set battleground to local storage
+    useEffect(() => {
+        const isBattleground = localStorage.getItem('battleground')
+
+        if (isBattleground) {
+            setBattleGround(isBattleground)
+        } else {
+            localStorage.setItem('battleground', battleGround)
+        }
+    }, [])
+
+    //* Reset web3 onboarding modal params
+    useEffect(() => {
+        const resetParams = async () => {
+            const currentStep = await GetParams()
+
+            setStep(currentStep.step)
+        }
+
+        resetParams()
+
+        window?.ethereum?.on('chainChanged', () => resetParams())
+        window?.ethereum?.on('accountsChanged', () => resetParams())
+    }, [])
+
     //* Set the wallet address to the state
     const updateCurrentWalletAddress = async () => {
         const accounts = await window?.ethereum?.request({ method: 'eth_requestAccounts' })
@@ -104,6 +129,21 @@ export const GlobalContextProvider = ({ children }) => {
             return () => clearTimeout(timer)
         }
     }, [showAlert])
+
+    //* Handle error messages
+    useEffect(() => {
+        if (errorMessage) {
+            const parsedErrorMessage = errorMessage?.reason?.slice('execution reverted: '.length).slice(0, -1)
+
+            if (parsedErrorMessage) {
+                setShowAlert({
+                    status: true,
+                    type: 'failure',
+                    message: parsedErrorMessage,
+                })
+            }
+        }
+    }, [errorMessage])
 
     return (
         <GlobalContext.Provider value={{

@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import Styles from '../Styles/Index'
-import { PageHOC } from "../Components/Index"
+import { CustomButton, CustomInput, GameLoad, PageHOC } from "../Components/Index"
+import { useGlobalContext } from '../Context/Index'
 
 const CreateBattle = () => {
   const [waitBattle, setWaitBattle] = useState(false)
