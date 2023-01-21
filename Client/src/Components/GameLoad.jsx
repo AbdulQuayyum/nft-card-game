@@ -1,14 +1,14 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
-import CustomButton from './CustomButton';
-import Styles from '../Styles/Index';
-import { player01, player02 } from '../Assets/Index';
-import { useGlobalContext } from '../Context/Index';
+import CustomButton from './CustomButton'
+import Styles from '../Styles/Index'
+import { player01, player02 } from '../Assets/Index'
+import { useGlobalContext } from '../Context/Index'
 
 const GameLoad = () => {
-  const { walletAddress } = useGlobalContext();
-  const navigate = useNavigate();
+  const { walletAddress } = useGlobalContext()
+  const navigate = useNavigate()
 
   return (
     <div className={`${Styles.flexBetween} ${Styles.gameLoadContainer}`}>

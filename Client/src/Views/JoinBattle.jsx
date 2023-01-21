@@ -1,30 +1,30 @@
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
-import Styles from '../Styles/Index';
-import { useGlobalContext } from '../Context/Index';
+import Styles from '../Styles/Index'
+import { useGlobalContext } from '../Context/Index'
 import { CustomButton, PageHOC } from "../Components/Index"
 
 const JoinBattle = () => {
 
-  const navigate = useNavigate();
-  const { contract, gameData, setShowAlert, setBattleName, setErrorMessage, walletAddress } = useGlobalContext();
+  const navigate = useNavigate()
+  const { contract, gameData, setShowAlert, setBattleName, setErrorMessage, walletAddress } = useGlobalContext()
 
   useEffect(() => {
-    if (gameData?.activeBattle?.battleStatus === 1) navigate(`/Battle/${gameData.activeBattle.name}`);
-  }, [gameData]);
+    if (gameData?.activeBattle?.battleStatus === 1) navigate(`/Battle/${gameData.activeBattle.name}`)
+  }, [gameData])
 
   const handleClick = async (battleName) => {
-    setBattleName(battleName);
+    setBattleName(battleName)
 
     try {
-      await contract.joinBattle(battleName);
+      await contract.joinBattle(battleName)
 
-      setShowAlert({ status: true, type: 'success', message: `Joining ${battleName}` });
+      setShowAlert({ status: true, type: 'success', message: `Joining ${battleName}` })
     } catch (error) {
-      setErrorMessage(error);
+      setErrorMessage(error)
     }
-  };
+  }
 
   return (
     <>
@@ -51,7 +51,7 @@ const JoinBattle = () => {
         Or create a new battle
       </p>
     </>
-  );
+  )
 }
 
 export default PageHOC(

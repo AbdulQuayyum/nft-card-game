@@ -89,6 +89,6 @@ const Styles = {
 
   // modal
   modalText: 'font-rajdhani font-bold text-3xl text-white mb-6 text-center',
-};
+}
 
-export default Styles;
+export default Styles

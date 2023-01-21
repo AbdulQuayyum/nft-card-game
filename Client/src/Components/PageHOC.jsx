@@ -9,6 +9,7 @@ import Styles from '../Styles/Index'
 const PageHOC = (Component, title, description) => () => {
   const { showAlert } = useGlobalContext()
   const navigate = useNavigate()
+  
   return (
     <div className={Styles.hocContainer}>
       {showAlert?.status && <Alert type={showAlert.type} message={showAlert.message} />}
